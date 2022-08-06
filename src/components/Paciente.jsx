@@ -1,22 +1,37 @@
 
-export const Paciente = () => {
+export const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
+
+  const {nombre, propietario, email, fecha, sintomas, id} = paciente
+
   return (
     <div className='mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl'>
         <p className='font-bold mb-3 text-gray-700 uppercase'>Nombre: {""}
-          <span className='font-normal normal-case'>Carlos</span>
+          <span className='font-normal normal-case'>{nombre}</span>
         </p>
         <p className='font-bold mb-3 text-gray-700 uppercase'>Propietario: {""}
-          <span className='font-normal normal-case'>Hook</span>
+          <span className='font-normal normal-case'>{propietario}</span>
         </p>
         <p className='font-bold mb-3 text-gray-700 uppercase'>Email: {""}
-          <span className='font-normal normal-case'>correo@correo.com</span>
+          <span className='font-normal normal-case'>{email}</span>
         </p>
         <p className='font-bold mb-3 text-gray-700 uppercase'>Fecha Alta: {""}
-          <span className='font-normal normal-case'>10 de Diciembre 2022</span>
+          <span className='font-normal normal-case'>{fecha}</span>
         </p>
         <p className='font-bold mb-3 text-gray-700 uppercase'>Síntomas: {""}
-          <span className='font-normal normal-case'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique numquam omnis dignissimos totam minima dolorem suscipit, delectus quisquam officia, officiis doloremque optio asperiores! Ipsam laborum voluptatem hic corporis expedita animi?</span>
+          <span className='font-normal normal-case'>{sintomas}</span>
         </p>
+        <div className="flex justify-between mt-10">
+          <button
+            type="button"
+            className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg"
+            onClick={() => setPaciente(paciente)}
+          >EDITAR</button>
+          <button
+            type="button"
+            className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg"
+            onClick={() => eliminarPaciente(id)}
+          >ELIMINAR</button>
+        </div>
       </div>
   )
 }
